@@ -107,6 +107,19 @@ jobs:
       - name: Build
         run: |
           make
+  FreeBSD:
+    runs-on: ubuntu-latest
+    name: A job to run test in FreeBSD
+    steps:
+    - uses: actions/checkout@v4
+    - name: Test in FreeBSD
+      id: test
+      uses: vmactions/freebsd-vm@v1
+      with:
+        fetch-depth: 1
+        submodules: true
+        run: |
+          make
   llvm:
     name: LLVM
     runs-on: ubuntu-22.04
